@@ -1,5 +1,6 @@
 Kassava Benchmarks
 ==========
+[![Build Status](https://travis-ci.org/consoleau/kassava-benchmarks.svg?branch=master)](https://travis-ci.org/consoleau/kassava-benchmarks)
 
 Benchmarks Kassava's `equals()` and `toString()` implementations against manual, Guava and Apache implementations.
 

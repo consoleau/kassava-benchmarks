@@ -19,7 +19,17 @@ class Person(val firstName: String, val lastName: String, val age: Int, val empl
         private val properties = arrayOf(Person::firstName, Person::lastName, Person::age, Person::employed)
     }
 
-    fun manualEquals(other: Any?): Boolean {
+    override fun equals(other: Any?): Boolean{
+        if (this === other) return true
+        if (other !is Person) return false
+        if (firstName != other.firstName) return false
+        if (lastName != other.lastName) return false
+        if (age != other.age) return false
+        if (employed != other.employed) return false
+        return true
+    }
+
+    fun objectsEquals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is Person) return false
         return Objects.equals(firstName, other.firstName) &&
@@ -54,8 +64,12 @@ class Person(val firstName: String, val lastName: String, val age: Int, val empl
         )
     }
 
-    fun manualToString(): String {
+    override fun toString(): String{
         return "Person(firstName='$firstName', lastName='$lastName', age=$age, employed=$employed)"
+    }
+
+    fun objectsToString(): String {
+        return "Person(firstName='${Objects.toString(firstName)}', lastName='${Objects.toString(lastName)}', age=${Objects.toString(age)}, employed=${Objects.toString(employed)})"
     }
 
     fun guavaToString(): String {
@@ -90,4 +104,5 @@ class Person(val firstName: String, val lastName: String, val age: Int, val empl
         )
     }
 
+    override fun hashCode() = Objects.hash(firstName, lastName, age, employed)
 }

@@ -24,7 +24,11 @@ open class EqualsBenchmark {
     }
 
     @Benchmark fun manualEquals(): Boolean {
-        return person1.manualEquals(person2)
+        return person1.equals(person2)
+    }
+
+    @Benchmark fun manualObjectsEquals(): Boolean {
+        return person1.objectsEquals(person2)
     }
 
     @Benchmark fun apacheEquals(): Boolean {

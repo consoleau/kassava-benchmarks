@@ -21,7 +21,11 @@ open class ToStringBenchmark {
     }
 
     @Benchmark fun manualToString(): String {
-        return person.manualToString()
+        return person.toString()
+    }
+
+    @Benchmark fun manualObjectsToString(): String {
+        return person.objectsToString()
     }
 
     @Benchmark fun apacheToString(): String {
@@ -32,7 +36,7 @@ open class ToStringBenchmark {
         return person.apacheReflectionToString()
     }
 
-    @Benchmark fun guaavaToString(): String {
+    @Benchmark fun guavaToString(): String {
         return person.guavaToString()
     }
 

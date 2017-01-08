@@ -13,7 +13,7 @@
     <properties>
         <kotlin.version>1.0.6</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kassava.version>0.1.0-rc.2</kassava.version>
+        <kassava.version>0.1.0-rc.3</kassava.version>
         <jmh.version>1.17.3</jmh.version>
         <jmh.generator>default</jmh.generator>
         <javac.target>1.8</javac.target>

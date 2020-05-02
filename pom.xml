@@ -11,12 +11,13 @@
     <name>Kassava benchmarks</name>
 
     <properties>
-        <kotlin.version>1.0.6</kotlin.version>
+        <javac.target>1.8</javac.target>
+        <kotlin.version>1.3.61</kotlin.version>
+        <kotlin.compiler.jvmTarget>${javac.target}</kotlin.compiler.jvmTarget>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kassava.version>1.0.0</kassava.version>
-        <jmh.version>1.17.3</jmh.version>
+        <jmh.version>1.23</jmh.version>
         <jmh.generator>default</jmh.generator>
-        <javac.target>1.8</javac.target>
         <uberjar.name>benchmarks</uberjar.name>
     </properties>
 

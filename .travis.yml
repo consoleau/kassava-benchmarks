@@ -1,4 +1,4 @@
 language: java
 sudo: true
 jdk: openjdk8
-script: mvn clean package && java -jar target/benchmarks.jar -wi 10 -i 5 -f 1 -tu ns -bm avgt
+script: mvn clean package && java -jar target/benchmarks.jar -wi 5 -i 3 -f 1 -tu ns -bm avgt

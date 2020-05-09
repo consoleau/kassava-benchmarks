@@ -2,7 +2,7 @@ Kassava Benchmarks
 ==========
 [![Build Status](https://travis-ci.org/consoleau/kassava-benchmarks.svg?branch=master)](https://travis-ci.org/consoleau/kassava-benchmarks)
 
-Benchmarks [Kassava](https://github.com/consoleau/kassava) `equals()`, `hasdCode()` and `toString()` implementations against manual, Guava and Apache implementations.
+Benchmarks [Kassava](https://github.com/consoleau/kassava) `equals()`, `hashCode()` and `toString()` implementations against manual, Guava and Apache implementations.
 
 Special thanks to JetBrains for the Kotlin/JMH example (on which this project is based) at https://github.com/JetBrains/kotlin-benchmarks
 

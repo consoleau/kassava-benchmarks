@@ -1,10 +1,13 @@
 package au.com.console.kassava.benchmark
 
 import au.com.console.kassava.kotlinEquals
+import au.com.console.kassava.kotlinHashCode
 import au.com.console.kassava.kotlinToString
 import com.google.common.base.MoreObjects
 import org.apache.commons.lang3.builder.EqualsBuilder
+import org.apache.commons.lang3.builder.HashCodeBuilder
 import org.apache.commons.lang3.builder.ToStringBuilder
+import org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString
 import java.util.*
 
 /**
@@ -104,5 +107,43 @@ class Person(val firstName: String, val lastName: String, val age: Int, val empl
         )
     }
 
-    override fun hashCode() = Objects.hash(firstName, lastName, age, employed)
+    override fun hashCode(): Int {
+        var result = firstName.hashCode()
+        result = 31 * result + lastName.hashCode()
+        result = 31 * result + age
+        result = 31 * result + employed.hashCode()
+        return result
+    }
+
+    fun objectsHashCode(): Int {
+        return Objects.hash(firstName, lastName, age, employed)
+    }
+
+    fun guavaHashCode(): Int {
+        return com.google.common.base.Objects.hashCode(firstName, lastName, age, employed)
+    }
+
+    fun apacheHashCode(): Int {
+        return HashCodeBuilder()
+            .append(firstName)
+            .append(lastName)
+            .append(age)
+            .append(employed)
+            .build()
+    }
+
+    fun apacheReflectionHashCode(): Int {
+        return HashCodeBuilder.reflectionHashCode(this)
+    }
+
+    fun kassavaHashCode(): Int {
+        return kotlinHashCode(properties = properties)
+    }
+
+    fun kassavaHashCodeWithArrayCreation(): Int {
+        return kotlinHashCode(
+            properties = arrayOf(Person::firstName, Person::lastName, Person::age, Person::employed)
+        )
+    }
+
 }
